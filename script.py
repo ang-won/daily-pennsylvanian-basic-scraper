@@ -30,7 +30,7 @@ def scrape_data_point():
 
     if req.ok:
         soup = bs4.BeautifulSoup(req.text, "html.parser")
-        target_element = soup.find("h3", class_="headline")
+        target_element = soup.find("h3", class_="standard-link")
         
         data_point = "" if target_element is None else target_element.text.strip()
         loguru.logger.info(f"Data point: {data_point}")
