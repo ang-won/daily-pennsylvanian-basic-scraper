@@ -135,3 +135,16 @@ But it is important to use it responsibly and ethically. Here are some guideline
 9. Document your scraping process thoroughly for replicability, transparency and accountability.
 
 10. Continuously re-evaluate your scraping program against applicable laws and ethical principles.
+
+## Changes made 
+
+I decided to modify script.py to scrape the top headline from the Opinion section. Here is how I went about it:
+
+1. Request the Opinion section instead of the homepage using:
+     req = requests.get("https://www.thedp.com/section/opinion", headers=headers)
+     loguru.logger.info(f"Request URL: {req.url}")
+     loguru.logger.info(f"Request status code: {req.status_code}")
+   
+2. Adjust search to locate the top Opinion article
+   Use HTML tag <h3> with class="standard-link" with:
+     target_element = soup.find("h3", class_="standard-link")
