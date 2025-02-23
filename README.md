@@ -136,7 +136,7 @@ But it is important to use it responsibly and ethically. Here are some guideline
 
 10. Continuously re-evaluate your scraping program against applicable laws and ethical principles.
 
-## Changes made 
+## Changes made to script.py
 
 I decided to modify script.py to scrape the top headline from the Opinion section. Here is how I went about it:
 
@@ -148,3 +148,25 @@ I decided to modify script.py to scrape the top headline from the Opinion sectio
 2. Adjust search to locate the top Opinion article
    Use HTML tag <h3> with class="standard-link" with:
      target_element = soup.find("h3", class_="standard-link")
+
+## Interpreting cron syntax:
+```
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: "0 20 * * *"
+```
+The cron expression "0 20 * * *" indicates:
+
+The '0' is the minute (0-59).
+The '20' is the hour (0-24).
+The first * indicates every day of the month.
+The second * indicates every month of the year.
+The third * indicates every day of the week. 
+
+So the scrape will occur once a day at hour 20 (8pm) every day.
+
+The syntax above that line indicates that this workflow will trigger on any push to the 'main' branch and on any pull request that specifies the main branch.
