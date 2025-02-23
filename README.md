@@ -167,6 +167,6 @@ The first * indicates every day of the month.
 The second * indicates every month of the year.
 The third * indicates every day of the week. 
 
-So the scrape will occur once a day at hour 20 (8pm) every day.
+So the scrape will occur once a day at hour 20 (8pm).
 
 The syntax above that line indicates that this workflow will trigger on any push to the 'main' branch and on any pull request that specifies the main branch.
