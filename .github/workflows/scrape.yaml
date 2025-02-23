@@ -1,5 +1,4 @@
-name: Scrape Update 🔄
-
+@@ -0,0 +1,60 @@
 on:
   push:
     branches: [main]
@@ -8,6 +7,7 @@ on:
   schedule:
     - cron: "0 20 * * *"  # 📅 Scrape once a day at 8PM, see crontab.guru for help
 
+name: Scrape Update 🔄
 jobs:
   update-logs:
     name: Scrape Update 🔄
@@ -43,6 +43,7 @@ jobs:
       - name: 🛠 Install dependencies
         if: steps.cache-pipenv.outputs.cache-hit != 'true'
         run: |
+          touch Pipfile
           pipenv install --deploy --dev
 
       - name: 🕵️‍♂️ Scrape content and output
