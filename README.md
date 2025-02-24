@@ -170,3 +170,15 @@ The third * indicates every day of the week.
 So the scrape will occur once a day at hour 20 (8pm).
 
 The syntax above that line indicates that this workflow will trigger on any push to the 'main' branch and on any pull request that specifies the main branch.
+
+## My modifications to the schedule:
+
+In scrape.yaml, I modified the cron schedule to include: 
+'''
+schedule:
+  # 📅 Scrape twice per day; once at midnight, once at noon
+  - cron: "0 0 * * *"  # Runs at midnight (00:00 UTC)
+  - cron: "0 12 * * *"  # Runs at noon (12:00 UTC)
+
+'''
+This triggers the workflow to run twice per day, instead of once. 
